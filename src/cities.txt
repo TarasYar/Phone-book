@@ -1,0 +1,5 @@
+Kyiv 3000000
+Harkiv 1400000
+Odesa 1000000
+Dnipro 980000
+Lviv 730000
