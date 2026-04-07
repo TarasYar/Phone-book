@@ -1,0 +1,8 @@
+/media/taras/Kurs/Курси/CppSystem Developer/portfolio/Loger_debug/build/CMakeFiles/MyProject.dir
+/media/taras/Kurs/Курси/CppSystem Developer/portfolio/Loger_debug/build/CMakeFiles/test.dir
+/media/taras/Kurs/Курси/CppSystem Developer/portfolio/Loger_debug/build/CMakeFiles/edit_cache.dir
+/media/taras/Kurs/Курси/CppSystem Developer/portfolio/Loger_debug/build/CMakeFiles/rebuild_cache.dir
+/media/taras/Kurs/Курси/CppSystem Developer/portfolio/Loger_debug/build/CMakeFiles/list_install_components.dir
+/media/taras/Kurs/Курси/CppSystem Developer/portfolio/Loger_debug/build/CMakeFiles/install.dir
+/media/taras/Kurs/Курси/CppSystem Developer/portfolio/Loger_debug/build/CMakeFiles/install/local.dir
+/media/taras/Kurs/Курси/CppSystem Developer/portfolio/Loger_debug/build/CMakeFiles/install/strip.dir
