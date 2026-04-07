@@ -77,5 +77,5 @@ int main(){
     for (auto &x : city_import) {
         std::cout<<x.first<<" "<<x.second<<'\n';
     }
-    log.info("The program has completed its work.");
+    log.info(".");
 }
