@@ -1,56 +1,56 @@
-# PhoneBook — Телефонна книга на C++
+# PhoneBook — C++ Console Application
 
-Консольний застосунок для управління контактами з підтримкою збереження у файл та логуванням подій.
-
----
-
-## Можливості
-
-- Додавання контактів (ім'я, прізвище, номер телефону, тег, нотатки)
-- Пошук контактів за будь-яким полем
-- Перегляд усіх контактів (відсортованих за ім'ям та прізвищем)
-- Видалення контактів
-- Автоматичне збереження у файл `phone_book.txt`
-- Логування всіх дій у файл `log.txt`
+A console-based contact manager with file persistence and event logging.
 
 ---
 
-## Структура проєкту
+## Features
+
+- Add contacts (first name, last name, phone number, tag, notes)
+- Search contacts by any field
+- View all contacts (sorted alphabetically by first and last name)
+- Delete contacts
+- Automatic saving to `phone_book.txt`
+- Event logging to `log.txt`
+
+---
+
+## Project Structure
 
 ```
 .
-├── main.cpp          # Точка входу
-├── phonebook.h       # Оголошення класу Phone_book
-├── phonebook.cpp     # Реалізація класу Phone_book
-├── contact.h         # Структура Contact
-├── logger.h          # Оголошення класу Logger
-└── logger.cpp        # Реалізація класу Logger
+├── main.cpp          # Entry point
+├── phonebook.h       # Phone_book class declaration
+├── phonebook.cpp     # Phone_book class implementation
+├── contact.h         # Contact struct
+├── logger.h          # Logger class declaration
+└── logger.cpp        # Logger class implementation
 ```
 
-### Опис файлів
+### File Descriptions
 
-| Файл | Опис |
+| File | Description |
 |---|---|
-| `contact.h` | Структура `Contact` з полями: ім'я, прізвище, номер, тег, нотатки |
-| `phonebook.h / .cpp` | Основна логіка: меню, CRUD-операції, читання/запис файлу |
-| `logger.h / .cpp` | Клас логера: запис подій з часовою міткою у `log.txt` |
-| `main.cpp` | Створює об'єкт `Phone_book` і запускає інтерфейс |
+| `contact.h` | `Contact` struct with fields: first name, last name, number, tag, notes |
+| `phonebook.h / .cpp` | Core logic: menu, CRUD operations, file read/write |
+| `logger.h / .cpp` | Logger class: writes timestamped events to `log.txt` |
+| `main.cpp` | Creates a `Phone_book` object and starts the UI |
 
 ---
 
-## Збірка
+## Build
 
-### Вимоги
+### Requirements
 
-- Компілятор з підтримкою C++17 (g++, clang++)
+- C++17-compatible compiler (g++, clang++)
 
-### Компіляція
+### Compile
 
 ```bash
 g++ -std=c++17 main.cpp -o phonebook
 ```
 
-### Запуск
+### Run
 
 ```bash
 ./phonebook
@@ -58,9 +58,9 @@ g++ -std=c++17 main.cpp -o phonebook
 
 ---
 
-## Використання
+## Usage
 
-Після запуску відображається головне меню:
+After launching, the main menu is displayed:
 
 ```
 Select the operation you want to perform:
@@ -72,47 +72,47 @@ Select the operation you want to perform:
 Enter your choice:
 ```
 
-### Додавання контакту
+### Adding a Contact
 
-Вводяться по черзі: ім'я, прізвище, номер телефону (тільки цифри, `+` додається автоматично), тег, нотатки. Порожні поля та коми у значеннях заборонені.
+Fields are entered one by one: first name, last name, phone number (digits only, `+` is prepended automatically), tag, and notes. Empty values and commas are not allowed.
 
-### Пошук
+### Search
 
-Пошук виконується за точним збігом (без урахування регістру) по одному з полів: ім'я, прізвище, номер, тег або нотатки.
+Search performs a case-insensitive exact match against one of the following fields: first name, last name, number, tag, or notes.
 
-### Видалення
+### Delete
 
-Відображається список усіх контактів із номерами — потрібно ввести номер контакту для видалення.
-
----
-
-## Збереження даних
-
-Дані зберігаються у файлі `phone_book.txt` у форматі CSV:
-
-```
-Іван,Петренко,380671234567,друг,зустріч у п'ятницю
-```
-
-Файл створюється автоматично при першому запуску. При виході з програми всі контакти записуються у файл.
+All contacts are displayed with index numbers — enter the index of the contact you want to remove.
 
 ---
 
-## Логування
+## Data Persistence
 
-Всі дії записуються у `log.txt` з часовою міткою:
+Contacts are stored in `phone_book.txt` in CSV format:
+
+```
+John,Doe,380671234567,friend,call on Friday
+```
+
+The file is created automatically on first run. All contacts are written to the file on exit.
+
+---
+
+## Logging
+
+All actions are recorded in `log.txt` with a timestamp:
 
 ```
 [Mon Apr 13 12:00:00 2026] INFO: The program is running
-[Mon Apr 13 12:00:05 2026] INFO: Added one person Іван, Петренко, 380671234567, друг, нотатка
+[Mon Apr 13 12:00:05 2026] INFO: Added one person John, Doe, 380671234567, friend, note
 [Mon Apr 13 12:01:00 2026] INFO: The program has completed its work.
 ```
 
 ---
 
-## Відомі обмеження
+## Known Limitations
 
-- Пошук знаходить лише **точні збіги** (не підрядок)
-- Поле `delete_contact` звертається до ітератора після `erase` — потенційно невизначена поведінка
-- `inline` у `.cpp` файлах не має ефекту для не-шаблонних функцій
-- `phonebook.h` підключає `logger.cpp` напряму — краще підключати тільки заголовний файл `.h`
+- Search finds only **exact matches**, not substrings
+- `delete_contact` accesses the iterator after `erase` — undefined behavior
+- `inline` in `.cpp` files has no effect for non-template functions
+- `phonebook.h` includes `logger.cpp` directly — only the header `.h` should be included
